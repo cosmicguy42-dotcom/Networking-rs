@@ -15,7 +15,9 @@ Then you can type a message to see the result.
 # ---Http Server---
 
 This rust code will make an http server for you.
-You can change the server front end in `main.html`
+
+You can change the server front end in `main.html` 
+
 Also this file print the log.
 
 
