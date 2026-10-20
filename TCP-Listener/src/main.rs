@@ -4,11 +4,14 @@ use std::io::Read;
 
 fn handle_client(mut stream: TcpStream)
 {
-    let mut txt_u8 = [0u8; 1024];
+    let mut buffer = [0u8; 1024];
 
-    match stream.read(&mut txt_u8) {
-        Ok(_bytes_read) => {
-            println!("Recepted: {:?}", String::from_utf8_lossy(&txt_u8));
+    match stream.read(&mut buffer) {
+        Ok(bytes_read) => {
+            if bytes_read == 0 {
+                return;
+            }
+            println!("Recepted {:?}", String::from_utf8_lossy(&buffer[..bytes_read])); 
         }
         Err(e) => {
             eprintln!("Error: \n{}", e);
