@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Live Variable</title>
+    <style>
+        /* Optional: Just a little styling so it's easy to read */
+        body { font-family: system-ui, sans-serif; padding: 2rem; background: #121212; color: #ffffff; }
+        .box { padding: 1rem; border: 2px solid #444; border-radius: 8px; background: #1e1e1e; display: inline-block; }
+        #rust-data { font-size: 1.5rem; color: #00ffcc; margin: 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+    <h1>Incoming Data from Rust:</h1>
+    
+    <div class="box">
+        <!-- This is the exact paragraph where your variable will go -->
+        <p id="rust-data">Waiting for Rust server...</p>
+    </div>
+
+    <script>
+        // 1. Tell the browser to listen to the "/stream" megaphone on your Rust server
+        const eventSource = new EventSource("/stream");
+
+        // 2. Every time the Rust server shouts a new message...
+        eventSource.onmessage = function(event) {
+            // 3. Grab the text of the message (event.data) and jam it into the <p> tag
+            document.getElementById("rust-data").innerText = event.data;
+        };
+    </script>
+
+</body>
+</html>
+

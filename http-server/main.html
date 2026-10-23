@@ -2,10 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Hello!</title>
+    <!-- Cette balise bloque les modifications de Dark Reader -->
+    <meta name="darkreader-lock" />
+    <title>My_Site</title>
+    <!-- Chargement de la police Nerd Fonts -->
+    <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    
+    <!-- Ajout du style CSS pour le fond, les couleurs et le texte -->
+    <style>
+      body {
+        background-color: #0d0d1b; /* Fond noir */
+        color: #ffffff;          /* Texte blanc */
+        font-family: sans-serif;
+      }
+      
+      .coeur {
+        color: #ff0000; /* Rouge */
+      }
+      
+      .vim {
+        color: #019833; /* Vert original de Vim */
+      }
+      
+      .nixos {
+        color: #5277C3; /* Bleu original de NixOS */
+      }
+
+      .github-link {
+        color: #58a6ff; /* Bleu clair style GitHub */
+        text-decoration: none;
+        font-size: 1.2em;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .github-link:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello World!</h1>
-    <p>This is an exemple</p>
+    
+    <!-- La nouvelle phrase combinée -->
+    <p>I really <i class="nf nf-fa-heart coeur"></i> <i class="nf nf-linux-nixos nixos"></i> and <i class="nf nf-custom-vim vim"></i></p>
+    
+    <!-- Lien vers votre GitHub -->
+    <a class="github-link" href="https://github.com/cosmicguy42-dotcom" target="_blank">
+      <i class="nf nf-fa-github"></i> https://github.com/cosmicguy42-dotcom
+    </a>
   </body>
 </html>
+
